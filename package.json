@@ -1,0 +1,28 @@
+{
+  "name": "json-ref",
+  "version": "1.0.0",
+  "description": "JSON with Reference",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test-debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aztack/json-ref.git"
+  },
+  "keywords": [
+    "JSON",
+    "YAML"
+  ],
+  "author": "aztack@163.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aztack/json-ref/issues"
+  },
+  "homepage": "https://github.com/aztack/json-ref#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
