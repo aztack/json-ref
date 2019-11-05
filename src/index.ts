@@ -4,7 +4,7 @@
  * @param {string} path path
  * @param {any} v default value
  */
-export function get(o: any, path: string, v: any): any {
+export function get(o: any, path: string, v?: any): any {
   path = String(path);
   if (!o || !path) return v;
   const props = stringToPath(path);
