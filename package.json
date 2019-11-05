@@ -4,6 +4,7 @@
   "description": "JSON with Reference",
   "main": "index.js",
   "scripts": {
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "test": "jest",
     "test-debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "build": "tsc"
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/aztack/json-ref#readme",
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "tslint": "^6.0.0-beta0"
   }
 }

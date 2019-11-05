@@ -4,12 +4,14 @@
  * @param {string} path path
  * @param {any} v default value
  */
-export function get(o: any, path: string, v: any = undefined): any {
+export function get(o: any, path: string, v: any): any {
   path = String(path);
   if (!o || !path) return v;
-  let props = stringToPath(path);
+  const props = stringToPath(path);
   if (props.length === 0) return o[path];
-  for (var t = o,i = 0;i < props.length; ++i){
+  let t = o;
+  let i = 0;
+  for (;i < props.length; ++i){
     t = t[props[i]]
     if(typeof t ==='undefined') return v;
   }
@@ -31,7 +33,9 @@ export function set(o: any, path: string, v: any): any {
   } else {
     const lastPart = props.pop();
     if (!lastPart) return v;
-    for (var t = o,i = 0;i < props.length; ++i){
+    let t = o;
+    let i = 0;
+    for (;i < props.length; ++i){
       t = t[props[i]]
       if(typeof t ==='undefined') return v;
     }
@@ -39,7 +43,7 @@ export function set(o: any, path: string, v: any): any {
   }
 }
 
-/* following code extract from https://github.com/lodash/lodash/blob/master/.internal/stringToPath.js */
+/* Following code is extracted from https://github.com/lodash/lodash/blob/master/.internal/stringToPath.js */
 
 /** Used to match property names within property paths. */
 const rePropName = RegExp(
@@ -67,7 +71,7 @@ const charCodeOfDot = '.'.charCodeAt(0)
  * @returns {Array} Returns the property path array.
  */
 function stringToPath(str: string): any[] {
-  var result = [];
+  const result = [];
   if (str.charCodeAt(0) === charCodeOfDot) {
     result.push('');
   }
@@ -85,7 +89,7 @@ function stringToPath(str: string): any[] {
   return result;
 };
 
-const reRef = /\{(.*?)\}/
+const reRef = /\{(.*?)\}/;
 
 /**
  * De-reference given object
