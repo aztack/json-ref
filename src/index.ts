@@ -112,4 +112,5 @@ export function deref (obj: object, indent: number = 2): object {
   return res;
 };
 
+deref.REF_CHECK = reRef;
 deref.REF_ROOT_PREFIX = '$.';
