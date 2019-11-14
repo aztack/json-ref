@@ -89,8 +89,6 @@ function stringToPath(str: string): any[] {
   return result;
 };
 
-const reRef = /\{(.*?)\}/;
-
 /**
  * De-reference given object
  * @param {object}  obj
@@ -100,11 +98,11 @@ const reRef = /\{(.*?)\}/;
 export function deref (obj: object, indent: number = 2): object {
   let res = obj;
   const str = JSON.stringify(obj, (k: string, v: any) => {
-    return typeof v === 'string' ? v.replace(reRef, (_, match) => {
+    return typeof v === 'string' ? v.replace(deref.REF_CHECK, (_, match) => {
       return get(obj, match.substr(deref.REF_ROOT_PREFIX.length));
     }) : v;
   }, indent);
-  if (str.match(reRef)) {
+  if (str.match(deref.REF_CHECK)) {
     res = JSON.parse(str);
     return deref(res);
   }
@@ -112,5 +110,5 @@ export function deref (obj: object, indent: number = 2): object {
   return res;
 };
 
-deref.REF_CHECK = reRef;
+deref.REF_CHECK = /\{(.*?)\}/;
 deref.REF_ROOT_PREFIX = '$.';
