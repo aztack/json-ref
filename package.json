@@ -1,5 +1,5 @@
 {
-  "name": "json-ref",
+  "name": "json-ref-simple",
   "version": "1.0.0",
   "description": "JSON with Reference",
   "main": "index.js",
